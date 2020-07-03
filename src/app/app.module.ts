@@ -31,13 +31,14 @@ import {
   
   
 } from '@nebular/theme';
-import { TabsetWidthComponent } from './@theme/components/tabset-width/tabset-width.component';
+
+
 
 
 
 
 @NgModule({
-  declarations: [AppComponent, TabsetWidthComponent,],
+  declarations: [AppComponent],
   
   imports: [
     BrowserModule,

@@ -7,6 +7,7 @@ import { CrearComponent } from './crear/crear.component';
 import { AprobacionComponent } from './aprobacion/aprobacion.component';
 import { ReportesComponent } from './reportes/reportes.component';
 import { RolComponent } from './rol/rol.component';
+import { EditarComponent } from './editar/editar.component';
 
 
 const routes: Routes = [{
@@ -20,7 +21,11 @@ const routes: Routes = [{
     {
         path: 'crear',
         component: CrearComponent,
-      },
+    },
+    {
+        path: 'editar',
+        component: EditarComponent,
+    },
     {
         path: 'aprobacion',
         component: AprobacionComponent,

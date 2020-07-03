@@ -1,4 +1,6 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+
 import { CommonModule } from '@angular/common';
 import { MatRippleModule } from '@angular/material/core';
 import {
@@ -13,6 +15,8 @@ import {
     NbSelectModule,
     NbIconModule,
     NbThemeModule,
+    NbTabsetModule,
+    
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NbSecurityModule } from '@nebular/security';
@@ -24,6 +28,8 @@ import {
     SearchInputComponent,
     SwitcherComponent,
     TableComponent,
+    FormularioComponent,
+    EditarProcesoComponent
 } from './components';
 
 import {
@@ -62,6 +68,9 @@ const NB_MODULES = [
   NbIconModule,
   NbEvaIconsModule,
   DataTablesModule,
+  NbTabsetModule,
+  RouterModule
+  
 ];
 const COMPONENTS = [
   SwitcherComponent,
@@ -73,6 +82,8 @@ const COMPONENTS = [
   ThreeColumnsLayoutComponent,
   TwoColumnsLayoutComponent,
   TableComponent,
+  FormularioComponent,
+  EditarProcesoComponent
 ];
 const PIPES = [
   CapitalizePipe,
@@ -84,6 +95,7 @@ const PIPES = [
 
 @NgModule({
   imports: [CommonModule, MatRippleModule, ...NB_MODULES],
+
 
 
 exports: [CommonModule, MatRippleModule, ...PIPES, ...COMPONENTS],

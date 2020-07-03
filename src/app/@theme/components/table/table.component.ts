@@ -22,7 +22,7 @@ export class TableComponent implements OnDestroy, OnInit {
     ngOnInit(): void {
         this.dtOptions = {
             pagingType: 'full_numbers',
-            pageLength: 5
+            pageLength: 10
           };
           this.http.get('http://dummy.restapiexample.com/api/v1/employees')
           .subscribe((respuesta: any) => {

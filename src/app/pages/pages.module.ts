@@ -15,6 +15,7 @@ import { AprobacionComponent } from './aprobacion/aprobacion.component';
 import { ReportesComponent } from './reportes/reportes.component';
 import { CrearComponent } from './crear/crear.component';
 import { RolComponent } from './rol/rol.component';
+import { EditarComponent } from './editar/editar.component';
 
 
 
@@ -37,6 +38,7 @@ import { RolComponent } from './rol/rol.component';
     ReportesComponent,
     CrearComponent,
     RolComponent,
+    EditarComponent,
     
   ],
 })

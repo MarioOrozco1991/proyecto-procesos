@@ -1,4 +1,6 @@
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
+// import { EditarProcesoComponent } from './@theme/components/editar-proceso/editar-proceso.component';
+
 import { NgModule } from '@angular/core';
 import {
     NbAuthComponent,
@@ -46,6 +48,7 @@ export const routes: Routes = [
     ],
   },
   { path: '', redirectTo: 'pages', pathMatch: 'full' },
+//   { path: '/editar', component: EditarProcesoComponent },
   { path: '**', redirectTo: 'pages' },
 ];
 
@@ -56,6 +59,8 @@ const config: ExtraOptions = {
 @NgModule({
   imports: [RouterModule.forRoot(routes, config)],
   
+
+
 exports: [RouterModule],
 })
 export class AppRoutingModule {

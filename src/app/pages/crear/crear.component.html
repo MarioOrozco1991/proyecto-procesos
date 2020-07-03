@@ -1,5 +1,4 @@
 <div>
-
     <nb-tabset fullWidth>
         <nb-tab tabTitle="Caracterización">
 
@@ -12,7 +11,7 @@
                             <div class="form-group row">
                                 <label class="col-3 col-form-label text-left">Clasificación</label>
                                 <select class="custom-select col-8 mr-1">
-                                    <option selected>---Seleccione---</option>
+                                    <option selected>Seleccione</option>
                                     <option value="1">Proceso 1</option>
                                     <option value="2">Proceso 2</option>
                                     <option value="3">Proceso 3</option>
@@ -21,9 +20,9 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group row">
-                                <label class="col-4 col-form-label text-left">Procesos POA</label>
-                                <select class="custom-select col-8">
-                                    <option selected>---Seleccione---</option>
+                                <label class="col-3 col-form-label text-left">Procesos POA</label>
+                                <select class="custom-select col">
+                                    <option selected>Seleccione</option>
                                     <option value="1">Si</option>
                                     <option value="2">No</option>
                                 </select>
@@ -43,8 +42,8 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group row">
-                                <label class="col-4 col-form-label text-left">Alcance</label>
-                                <input class="form-control col-8" type="text" placeholder="Ingrese el alcance" formControlName="alcance" [class.is-invalid]="alcanceNoValido">
+                                <label class="col-3 col-form-label text-left">Alcance</label>
+                                <input class="form-control col-9" type="text" placeholder="Ingrese el alcance" formControlName="alcance" [class.is-invalid]="alcanceNoValido">
                                 <small *ngIf="alcanceNoValido" class="form-text text-danger">
                                     Este campo es obligatorio
                                 </small>
@@ -89,8 +88,8 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group row">
-                                <label class="col-4 col-form-label text-left">Salida</label>
-                                <input type="text" class="form-control col-8" name="fecha" placeholder="Ingrese el nombre del proceso">
+                                <label class="col-3 col-form-label text-left">Salida</label>
+                                <input type="text" class="form-control col-9" name="fecha" placeholder="Ingrese el nombre del proceso">
                             </div>
                         </div>
                     </div>
@@ -99,41 +98,64 @@
                         <div class="col-md-6">
                             <div class="form-group row">
                                 <label class="col-3 col-form-label text-left">Proveedor</label>
-                                <select class="custom-select col-4">
-                                    <option selected>---Seleccione---</option>
+                                <select class="custom-select col mr-1">
+                                    <option selected>Seleccione</option>
                                     <option value="1">Proceso 1</option>
                                     <option value="2">Proceso 2</option>
                                     <option value="3">Proceso 3</option>
                                 </select>
-                                <select class="custom-select col-4 mr-1">
-                                    <option selected>---Seleccione---</option>
+                                <select class="custom-select col">
+                                    <option selected>Seleccione</option>
                                     <option value="1">Proceso 1</option>
                                     <option value="2">Proceso 2</option>
                                     <option value="3">Proceso 3</option>
                                 </select>
+                                <button type="button" class="btn btn-outline-primary col-1 ml-1"> +
+                                </button>
                             </div>
                         </div>
+
+                        <!-- <div class="row mt-2">
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-2 col-form-label text-left">Tarea</label>
+                                    <input class="form-control col-6 mr-1" type="text" formControlName="proceso" [class.is-invalid]="procesoNoValido">
+                                    <div class="input-group col-3">
+                                        <button type="button" class="btn btn-outline-primary">
+                                            +
+                                        </button>
+                                    </div>
+                                    <small *ngIf="procesoNoValido" class="form-text text-danger">
+                                        Este campo es obligatorio
+                                    </small>
+                                </div>
+                            </div>
+                        </div> -->
+
+
                         <div class="col-md-6">
                             <div class="form-group row">
-                                <label class="col-4 col-form-label text-left">Cliente</label>
-                                <select class="custom-select col-4">
-                                    <option selected>---Seleccione---</option>
+                                <label class="col-3 col-form-label text-left">Cliente</label>
+                                <select class="custom-select col mr-1">
+                                    <option selected>Seleccione</option>
                                     <option value="1">Proceso 1</option>
                                     <option value="2">Proceso 2</option>
                                     <option value="3">Proceso 3</option>
                                 </select>
-                                <select class="custom-select col-4">
-                                    <option selected>---Seleccione---</option>
+                                <select class="custom-select col">
+                                    <option selected>Seleccione</option>
                                     <option value="1">Proceso 1</option>
                                     <option value="2">Proceso 2</option>
                                     <option value="3">Proceso 3</option>
                                 </select>
+                                <button type="button" class="btn btn-outline-primary col-1 ml-1"> +
+                                </button>
                             </div>
                         </div>
                     </div>
 
 
-                    <div class="form-group">
+                    <div class="form-group row">
                         <label>Minimal</label>
                         <select class="form-control select2" style="width: 100%;">
                           <option selected="selected">Alabama</option>
@@ -148,18 +170,14 @@
 
 
                     <div class="form-group row float-right">
-                        <label class="col-2 col-form-label">&nbsp;</label>
-                        <div class="input-group col-md-12">
-                            <button type="submit" class="btn btn-outline-primary">
-                                Siguiente <i class="fas fa-angle-right"></i> 
+                        <button type="button" class="btn btn-outline-success">
+                                Siguiente <i class="fas fa-chevron-right"></i> 
                             </button>
-                        </div>
                     </div>
                 </form>
             </div>
 
         </nb-tab>
-
 
 
         <nb-tab tabTitle="Actividades">
@@ -168,13 +186,13 @@
 
                 <form autocomplete="off" [formGroup]="forma" (ngSubmit)="guardar()">
 
-                    <div class="row mt-4">
+                    <div class="row mt-4 text-center">
                         <div class="col-md-4">
                             <label class="col-form-label float-center">¿Quién realiza la actividad?</label>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group row">
-                                <select class="custom-select col-9">
+                        <div class="col-md-2">
+                            <div class="form-group row mr-2">
+                                <select class="custom-select">
                                     <option selected>---Persona---</option>
                                     <option value="1">Persona 1</option>
                                     <option value="2">Persona 2</option>
@@ -182,30 +200,30 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-2">
                             <div class="form-group row">
-                                <select class="custom-select col-9">
+                                <select class="custom-select">
                                     <option selected>---Puesto---</option>
                                     <option value="1">Puesto 1</option>
                                     <option value="2">Puesto 2</option>
                                     <option value="2">Puesto 3</option>
                                 </select>
-                                <div class="input-group col-3">
-                                    <button type="button" class="btn btn-outline-primary">
-                                        +
-                                    </button>
-                                </div>
                             </div>
                         </div>
+                        <div class="col-md-1">
+                            <button type="button" class="btn btn-outline-primary">+
+                        </button>
+                        </div>
                     </div>
-                    <div class="row mt-2">
+
+                    <div class="row mt-4">
                         <div class="col-md-3">
                             <div class="form-group row">
                                 <div>
                                     <label class="col-10 col-form-label text-center">¿Qué necesita para realizar la activdad?</label>
                                 </div>
                                 <div>
-                                    <textarea class="form-control col-10 align-center" rows="2" placeholder="Ingrese aquí las observaciones" formControlName="observaciones" [class.is-invalid]="observacionesNoValido">
+                                    <textarea class="form-control col-10 align-center" rows="2" formControlName="observaciones" [class.is-invalid]="observacionesNoValido">
                                 </textarea>
                                 </div>
                                 <small *ngIf="observacionesNoValido" class="form-text text-danger">
@@ -219,7 +237,7 @@
                                     <label class="col-10 col-form-label text-center ">¿Qué actividad realiza?</label>
                                 </div>
                                 <div>
-                                    <textarea class="form-control col-10" rows="2" placeholder="Ingrese aquí las observaciones" formControlName="observaciones" [class.is-invalid]="observacionesNoValido">
+                                    <textarea class="form-control col-10" rows="2" formControlName="observaciones" [class.is-invalid]="observacionesNoValido">
                                 </textarea>
                                 </div>
                                 <small *ngIf="observacionesNoValido" class="form-text text-danger">
@@ -233,7 +251,7 @@
                                     <label class="col-10 col-form-label text-center">¿Qué resultado genera?</label>
                                 </div>
                                 <div>
-                                    <textarea class="form-control col-10" rows="2" placeholder="Ingrese aquí las observaciones" formControlName="observaciones" [class.is-invalid]="observacionesNoValido">
+                                    <textarea class="form-control col-10" rows="2" formControlName="observaciones" [class.is-invalid]="observacionesNoValido">
                                 </textarea>
                                 </div>
                                 <small *ngIf="observacionesNoValido" class="form-text text-danger">
@@ -247,7 +265,7 @@
                                     <label class="col-10 col-form-label text-center">¿A quién le entrega el resultado?</label>
                                 </div>
                                 <div>
-                                    <textarea class="form-control col-10" rows="2" placeholder="Ingrese aquí las observaciones" formControlName="observaciones" [class.is-invalid]="observacionesNoValido">
+                                    <textarea class="form-control col-10" rows="2" formControlName="observaciones" [class.is-invalid]="observacionesNoValido">
                                 </textarea>
                                 </div>
                                 <small *ngIf="observacionesNoValido" class="form-text text-danger">
@@ -262,9 +280,6 @@
                             <div class="form-group row">
                                 <textarea class="form-control" rows="2" placeholder="Aquí irá el texto formado por la actividad" formControlName="observaciones" [class.is-invalid]="observacionesNoValido">
                                 </textarea>
-                                <small *ngIf="observacionesNoValido" class="form-text text-danger">
-                                    Este campo es obligatorio
-                                </small>
                             </div>
                         </div>
                     </div>
@@ -292,33 +307,61 @@
                     </div>
 
                     <div class="row mt-2">
-                        <div class="col-md-6">
-                            <div class="form-group row">
-                                <label class="col-2 col-form-label text-left">Tarea</label>
-                                <input class="form-control col-6 mr-1" type="text" formControlName="proceso" [class.is-invalid]="procesoNoValido">
-                                <div class="input-group col-3">
-                                    <button type="button" class="btn btn-outline-primary">
-                                        +
-                                    </button>
-                                </div>
-                                <small *ngIf="procesoNoValido" class="form-text text-danger">
-                                    Este campo es obligatorio
-                                </small>
-                            </div>
+
+                        <div class="input-group col-6">
+                            <button (click)=" mostrarTareas = !mostrarTareas" type="button" class="btn btn-outline-primary">Crear tareas
+                            </button>
                         </div>
                     </div>
 
-                    <div class="row mt-2 float-center">
-                        <div class="input-group col-md-4">
-                            <button type="submit" class="btn btn-outline-secondary col-5 mr-2">
-                                <i class="fas fa-chevron-left"></i> Anterior
+                    <div *ngIf="mostrarTareas" class="row mt-5 ">
+                        <div class="col-md-6">
+                            <table class="table">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Tarea</th>
+                                        <th>Acción</th>
+                                    </tr>
+                                </thead>
+                                <tbody formArrayName="tareas">
+                                    <tr *ngFor="let control of tareas.controls; let i = index">
+                                        <td>{{i + 1}}</td>
+                                        <td>
+                                            <input class="form-control" type="text" [formControlName]="i">
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-danger" (click)="eliminarTarea(i)"> <i class="fas fa-trash-alt"></i> Eliminar</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <button type="button" class="btn btn-primary mt-3 col mr-2" (click)="agregarTarea()">
+                                    + Agregar tarea
                             </button>
+                            <button type="button" class="btn btn-success mt-3 col" (click)="agregarActividad()">
+                                + Agregar activdad
+                        </button>
+                        </div>
+                    </div>
 
-
-                            <button type="submit" class="btn btn-outline-success col-5">
-                                <i class="far fa-save"></i> Guardar
+                    <!-- <div class="form-group row float-right">
+                        <label class="col-2 col-form-label">&nbsp;</label>
+                        <div class="input-group col-md-12">
+                            <button type="button" class="btn btn-outline-primary">
+                                Guardar <i class="fas fa-angle-right"></i> 
                             </button>
                         </div>
+                    </div> -->
+
+                    <div class="form-group row float-right mt-4">
+                        <button type="button" class="btn btn-outline-secondary mr-2">
+                            <i class="fas fa-chevron-left"></i> Anterior  
+                        </button>
+                        <button type="submit" class="btn btn-outline-success">
+                            <i class="fas fa-save"></i> Guardar  
+                        </button>
                     </div>
 
                 </form>

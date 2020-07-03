@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 import { NbTabsetModule } from '@nebular/theme';
 
 
@@ -9,6 +9,8 @@ import { NbTabsetModule } from '@nebular/theme';
 //   styleUrls: ['./crear.component.scss']
 })
 export class CrearComponent implements OnInit {
+
+    mostrarTareas: boolean = false;
 
     forma: FormGroup;
 
@@ -23,6 +25,10 @@ export class CrearComponent implements OnInit {
     ngOnInit(): void {
     }
     
+    get tareas(){
+        return this.forma.get('tareas') as FormArray;
+    }
+
     get procesoNoValido(){
         return this.forma.get('proceso').invalid && this.forma.get('proceso').touched
     }
@@ -48,8 +54,24 @@ export class CrearComponent implements OnInit {
             proceso      : ['', Validators.required],
             alcance      : ['', Validators.required],
             objetivo    : ['', Validators.required],
-            observaciones: ['', Validators.required]
+            observaciones: ['', Validators.required],
+            tareas: this.fb.array([])
         })
+    }
+
+
+    //agregando las tareas
+    agregarTarea(){
+        this.tareas.push( this.fb.control('', Validators.required ) );
+
+    }
+
+    eliminarTarea(i: number ){
+        this.tareas.removeAt(i);
+    }
+
+    agregarActividad(){
+        
     }
 
     //metodo cuando el usuario presione click en guardar
