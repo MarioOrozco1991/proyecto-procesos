@@ -8,7 +8,7 @@ import { AprobacionComponent } from './aprobacion/aprobacion.component';
 import { ReportesComponent } from './reportes/reportes.component';
 import { RolComponent } from './rol/rol.component';
 import { EditarComponent } from './editar/editar.component';
-
+import { PoaComponent } from './poa/poa.component';
 
 const routes: Routes = [{
   path: '',
@@ -38,7 +38,10 @@ const routes: Routes = [{
         path: 'rol',
         component: RolComponent,
     },
-
+    {
+        path: 'poa',
+        component: PoaComponent,
+    },
     {
       path: '',
       redirectTo: 'dashboard',

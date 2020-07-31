@@ -33,6 +33,16 @@ export const MENU_ITEMS: NbMenuItem[] = [
         },
       ],
   },
+  {
+    title: 'Actividades',
+    icon: 'edit-2-outline',
+    link: '/pages/actividades',
+  },
+  {
+    title: 'POA',
+    icon: 'bar-chart-2-outline',
+    link: '/pages/poa',
+  },
 
 //   {
 //     title: 'Auth',

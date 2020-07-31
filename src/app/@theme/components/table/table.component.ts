@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'ngx-table',
@@ -15,7 +16,8 @@ export class TableComponent implements OnDestroy, OnInit {
 
     data: any;
 
-    constructor(private http:HttpClient){
+    constructor(private http:HttpClient, 
+                private router:Router){
 
     }
     
@@ -35,6 +37,10 @@ export class TableComponent implements OnDestroy, OnInit {
 
     ngOnDestroy(): void {
         this.dtTrigger.unsubscribe();
+    }
+
+    editarProceso(){
+        this.router.navigate(["editar"]);
     }
 
 }

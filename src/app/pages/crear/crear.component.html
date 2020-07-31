@@ -10,19 +10,19 @@
                         <div class="col-md-6">
                             <div class="form-group row">
                                 <label class="col-3 col-form-label text-left">Clasificación</label>
-                                <select class="custom-select col-8 mr-1">
-                                    <option selected>Seleccione</option>
-                                    <option value="1">Proceso 1</option>
-                                    <option value="2">Proceso 2</option>
-                                    <option value="3">Proceso 3</option>
+                                <select class="custom-select col-8 mr-1" formControlName="clasificacion">
+                                    <option selected disabled value="">Seleccione</option>
+                                    <option value="1">Procesos Estratégicos</option>
+                                    <option value="2">Procesos Operativos</option>
+                                    <option value="3">Procesos de apoyo</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group row">
                                 <label class="col-3 col-form-label text-left">Procesos POA</label>
-                                <select class="custom-select col">
-                                    <option selected>Seleccione</option>
+                                <select class="custom-select col" formControlName="procesoPOA">
+                                    <option selected disabled value="">Seleccione</option>
                                     <option value="1">Si</option>
                                     <option value="2">No</option>
                                 </select>
@@ -34,46 +34,73 @@
                         <div class="col-md-6">
                             <div class="form-group row">
                                 <label class="col-3 col-form-label text-left">Proceso</label>
-                                <input class="form-control col-8 mr-1" type="text" placeholder="Ingrese el nombre del proceso" formControlName="proceso" [class.is-invalid]="procesoNoValido">
-                                <small *ngIf="procesoNoValido" class="form-text text-danger">
+                                <input class="form-control col-8 mr-1" type="text" placeholder="Ingrese el nombre del proceso" formControlName="nombreProceso">
+                                <!--esto se debe de agregar despues del formControlName para realizar la validacion del campo [class.is-invalid]="procesoNoValido" -->
+
+                                <!-- <small *ngIf="procesoNoValido" class="form-text text-danger">
                                     Este campo es obligatorio
-                                </small>
+                                </small> -->
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group row">
                                 <label class="col-3 col-form-label text-left">Alcance</label>
-                                <input class="form-control col-9" type="text" placeholder="Ingrese el alcance" formControlName="alcance" [class.is-invalid]="alcanceNoValido">
-                                <small *ngIf="alcanceNoValido" class="form-text text-danger">
+                                <input class="form-control col-9" type="text" placeholder="Ingrese el alcance" formControlName="alcance">
+                                <!-- <small *ngIf="alcanceNoValido" class="form-text text-danger">
                                     Este campo es obligatorio
-                                </small>
+                                </small> -->
                             </div>
                         </div>
                     </div>
 
-                    <div class="row mt-2">
+                    <div class="row mt-4">
                         <div class="col-md-6">
                             <div class="form-group row">
                                 <label class="col-3 col-form-label text-left">Objetivo</label>
-                                <input class="form-control col-8 mr-1" type="text" placeholder="Ingrese el objetivo" formControlName="objetivo" [class.is-invalid]="objetivoNoValido">
-                                <small *ngIf="objetivoNoValido" class="form-text text-danger">
+                                <input class="form-control col-8 mr-1" type="text" placeholder="Ingrese el objetivo" formControlName="objetivo">
+                                <!-- <small *ngIf="objetivoNoValido" class="form-text text-danger">
                                     Este campo es obligatorio
-                                </small>
+                                </small> -->
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group row">
                                 <label class="col-4 col-form-label text-left">Observaciones</label>
-                                <textarea class="form-control col-8" rows="2" placeholder="Ingrese aquí las observaciones" formControlName="observaciones" [class.is-invalid]="observacionesNoValido">
+                                <textarea class="form-control col-8" rows="2" placeholder="Ingrese aquí las observaciones" formControlName="observaciones">
                                 </textarea>
-                                <small *ngIf="observacionesNoValido" class="form-text text-danger">
+                                <!-- <small *ngIf="observacionesNoValido" class="form-text text-danger">
                                     Este campo es obligatorio
-                                </small>
+                                </small> -->
                             </div>
                         </div>
 
                     </div>
+
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-6 col-form-label text-left">¿Utiliza un sistema para este proceso?</label>
+                                <select class="custom-select col-5 mr-1" formControlName="utilizaSistema">
+                                    <option selected disabled value="">Seleccione</option>
+                                    <option (click)="mostrarNombreSistema = !mostrarNombreSistema" value="1" >Si</option>
+                                    <option value="2">No</option> 
+                                </select>
+                            </div>
+                        </div>
+                        <div *ngIf="mostrarNombreSistema" class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-4 col-form-label text-left">Nombre del sistema</label>
+                                <select class="custom-select col-8" formControlName="nombreSistema">
+                                    <option selected disabled value="">Seleccione</option>
+                                    <option value="1">Pointer</option>
+                                    <option value="2">Sistema 2</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
                     <hr>
+
                     <div>
                         <h2 class="text-left">Entradas y Salidas</h2>
 
@@ -83,13 +110,13 @@
                         <div class="col-md-6">
                             <div class="form-group row">
                                 <label class="col-3 col-form-label text-left">Entrada</label>
-                                <input type="text" class="form-control col-8 mr-1" name="nombre" placeholder="Ingrese el nombre del proceso">
+                                <input type="text" class="form-control col-8 mr-1" name="nombre" placeholder="Ingrese la entrada" formControlName="entrada">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group row">
                                 <label class="col-3 col-form-label text-left">Salida</label>
-                                <input type="text" class="form-control col-9" name="fecha" placeholder="Ingrese el nombre del proceso">
+                                <input type="text" class="form-control col-9" name="fecha" placeholder="Ingrese la salida" formControlName="salida">
                             </div>
                         </div>
                     </div>
@@ -98,17 +125,17 @@
                         <div class="col-md-6">
                             <div class="form-group row">
                                 <label class="col-3 col-form-label text-left">Proveedor</label>
-                                <select class="custom-select col mr-1">
-                                    <option selected>Seleccione</option>
-                                    <option value="1">Proceso 1</option>
-                                    <option value="2">Proceso 2</option>
-                                    <option value="3">Proceso 3</option>
+                                <select class="custom-select col mr-1" formControlName="dependenciaProveedor">
+                                    <option selected disabled value="">Dependencia</option>
+                                    <option value="1">Recursos Humanos</option>
+                                    <option value="2">Dirección de Informática y Estadística</option>
+                                    <option value="3">Planificación</option>
                                 </select>
-                                <select class="custom-select col">
-                                    <option selected>Seleccione</option>
-                                    <option value="1">Proceso 1</option>
-                                    <option value="2">Proceso 2</option>
-                                    <option value="3">Proceso 3</option>
+                                <select class="custom-select col" formControlName="puestoProveedor">
+                                    <option selected disabled value="">Puesto</option>
+                                    <option value="1">Jefe</option>
+                                    <option value="2">Asistente</option>
+                                    <option value="3">Secretaría</option>
                                 </select>
                                 <button type="button" class="btn btn-outline-primary col-1 ml-1"> +
                                 </button>
@@ -136,17 +163,17 @@
                         <div class="col-md-6">
                             <div class="form-group row">
                                 <label class="col-3 col-form-label text-left">Cliente</label>
-                                <select class="custom-select col mr-1">
-                                    <option selected>Seleccione</option>
-                                    <option value="1">Proceso 1</option>
-                                    <option value="2">Proceso 2</option>
-                                    <option value="3">Proceso 3</option>
+                                <select class="custom-select col mr-1" formControlName="dependenciaCliente">
+                                    <option selected disabled value="">Dependencia</option>
+                                    <option value="1">Recursos Humanos</option>
+                                    <option value="2">Dirección de Informática y Estadística</option>
+                                    <option value="3">Planificación</option>
                                 </select>
-                                <select class="custom-select col">
-                                    <option selected>Seleccione</option>
-                                    <option value="1">Proceso 1</option>
-                                    <option value="2">Proceso 2</option>
-                                    <option value="3">Proceso 3</option>
+                                <select class="custom-select col" formControlName="puestoCliente">
+                                    <option selected disabled value="">Puesto</option>
+                                    <option value="1">Jefe</option>
+                                    <option value="2">Asistente</option>
+                                    <option value="3">Secretaría</option>
                                 </select>
                                 <button type="button" class="btn btn-outline-primary col-1 ml-1"> +
                                 </button>
@@ -155,21 +182,7 @@
                     </div>
 
 
-                    <div class="form-group row">
-                        <label>Minimal</label>
-                        <select class="form-control select2" style="width: 100%;">
-                          <option selected="selected">Alabama</option>
-                          <option>Alaska</option>
-                          <option>California</option>
-                          <option>Delaware</option>
-                          <option>Tennessee</option>
-                          <option>Texas</option>
-                          <option>Washington</option>
-                        </select>
-                    </div>
-
-
-                    <div class="form-group row float-right">
+                    <div class="form-group row float-right mt-5">
                         <button type="button" class="btn btn-outline-success">
                                 Siguiente <i class="fas fa-chevron-right"></i> 
                             </button>
@@ -193,20 +206,20 @@
                         <div class="col-md-2">
                             <div class="form-group row mr-2">
                                 <select class="custom-select">
-                                    <option selected>---Persona---</option>
-                                    <option value="1">Persona 1</option>
-                                    <option value="2">Persona 2</option>
-                                    <option value="3">Persona 3</option>
+                                    <option selected disabled value="">---Persona---</option>
+                                    <option value="1">Jose López</option>
+                                    <option value="2">Luisa Barrios</option>
+                                    <option value="3">Humberto Ruiz</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col-md-2">
                             <div class="form-group row">
                                 <select class="custom-select">
-                                    <option selected>---Puesto---</option>
-                                    <option value="1">Puesto 1</option>
-                                    <option value="2">Puesto 2</option>
-                                    <option value="2">Puesto 3</option>
+                                    <option selected disabled value="">---Puesto---</option>
+                                    <option value="1">Jefe de área</option>
+                                    <option value="2">Asistente</option>
+                                    <option value="2">Secretaria</option>
                                 </select>
                             </div>
                         </div>
@@ -223,12 +236,12 @@
                                     <label class="col-10 col-form-label text-center">¿Qué necesita para realizar la activdad?</label>
                                 </div>
                                 <div>
-                                    <textarea class="form-control col-10 align-center" rows="2" formControlName="observaciones" [class.is-invalid]="observacionesNoValido">
+                                    <textarea class="form-control col-10 align-center" rows="2" formControlName="observaciones">
                                 </textarea>
                                 </div>
-                                <small *ngIf="observacionesNoValido" class="form-text text-danger">
+                                <!-- <small *ngIf="observacionesNoValido" class="form-text text-danger">
                                     Este campo es obligatorio
-                                </small>
+                                </small> -->
                             </div>
                         </div>
                         <div class="col-md-3">
@@ -237,12 +250,12 @@
                                     <label class="col-10 col-form-label text-center ">¿Qué actividad realiza?</label>
                                 </div>
                                 <div>
-                                    <textarea class="form-control col-10" rows="2" formControlName="observaciones" [class.is-invalid]="observacionesNoValido">
+                                    <textarea class="form-control col-10" rows="2" formControlName="observaciones">
                                 </textarea>
                                 </div>
-                                <small *ngIf="observacionesNoValido" class="form-text text-danger">
+                                <!-- <small *ngIf="observacionesNoValido" class="form-text text-danger">
                                     Este campo es obligatorio
-                                </small>
+                                </small> -->
                             </div>
                         </div>
                         <div class="col-md-3">
@@ -251,12 +264,12 @@
                                     <label class="col-10 col-form-label text-center">¿Qué resultado genera?</label>
                                 </div>
                                 <div>
-                                    <textarea class="form-control col-10" rows="2" formControlName="observaciones" [class.is-invalid]="observacionesNoValido">
+                                    <textarea class="form-control col-10" rows="2" formControlName="observaciones">
                                 </textarea>
                                 </div>
-                                <small *ngIf="observacionesNoValido" class="form-text text-danger">
+                                <!-- <small *ngIf="observacionesNoValido" class="form-text text-danger">
                                     Este campo es obligatorio
-                                </small>
+                                </small> -->
                             </div>
                         </div>
                         <div class="col-md-3">
@@ -265,12 +278,12 @@
                                     <label class="col-10 col-form-label text-center">¿A quién le entrega el resultado?</label>
                                 </div>
                                 <div>
-                                    <textarea class="form-control col-10" rows="2" formControlName="observaciones" [class.is-invalid]="observacionesNoValido">
+                                    <textarea class="form-control col-10" rows="2" formControlName="observaciones">
                                 </textarea>
                                 </div>
-                                <small *ngIf="observacionesNoValido" class="form-text text-danger">
+                                <!-- <small *ngIf="observacionesNoValido" class="form-text text-danger">
                                     Este campo es obligatorio
-                                </small>
+                                </small> -->
                             </div>
                         </div>
                     </div>
@@ -278,7 +291,7 @@
                     <div class="row mt-2">
                         <div class="col-md-12">
                             <div class="form-group row">
-                                <textarea class="form-control" rows="2" placeholder="Aquí irá el texto formado por la actividad" formControlName="observaciones" [class.is-invalid]="observacionesNoValido">
+                                <textarea class="form-control" rows="2" placeholder="Aquí irá el texto formado por la actividad" formControlName="observaciones">
                                 </textarea>
                             </div>
                         </div>
@@ -288,20 +301,20 @@
                         <div class="col-md-4">
                             <div class="form-group row">
                                 <label class="col-9 col-form-label text-left">Tiempo promedio de la actividad (horas)</label>
-                                <input class="form-control col-3 mt-2" type="text" formControlName="proceso" [class.is-invalid]="procesoNoValido">
-                                <small *ngIf="procesoNoValido" class="form-text text-danger">
+                                <input class="form-control col-3 mt-2" type="text">
+                                <!-- <small *ngIf="procesoNoValido" class="form-text text-danger">
                                     Este campo es obligatorio
-                                </small>
+                                </small> -->
                             </div>
                         </div>
                         <div class="col-md-8">
                             <div class="form-group row">
                                 <label class="col-3 col-form-label text-right">Observaciones</label>
-                                <textarea class="form-control col-9 mt-2" rows="1" formControlName="alcance" [class.is-invalid]="alcanceNoValido">
+                                <textarea class="form-control col-9 mt-2" rows="1" formControlName="alcance">
                                 </textarea>
-                                <small *ngIf="alcanceNoValido" class="form-text text-danger">
+                                <!-- <small *ngIf="alcanceNoValido" class="form-text text-danger">
                                     Este campo es obligatorio
-                                </small>
+                                </small> -->
                             </div>
                         </div>
                     </div>

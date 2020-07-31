@@ -12,10 +12,11 @@ import { ThemeModule } from '../@theme/theme.module';
 import { PagesComponent } from './pages.component';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { AprobacionComponent } from './aprobacion/aprobacion.component';
-import { ReportesComponent } from './reportes/reportes.component';
 import { CrearComponent } from './crear/crear.component';
 import { RolComponent } from './rol/rol.component';
 import { EditarComponent } from './editar/editar.component';
+import { ReportesComponent } from './reportes/reportes.component';
+import { PoaComponent } from './poa/poa.component';
 
 
 
@@ -39,6 +40,7 @@ import { EditarComponent } from './editar/editar.component';
     CrearComponent,
     RolComponent,
     EditarComponent,
+    PoaComponent,
     
   ],
 })
